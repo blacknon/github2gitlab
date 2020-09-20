@@ -63,7 +63,8 @@ class GitHub2GitLab(object):
 
         self.github = {
             'url': "https://api.github.com",
-            'git': "https://github.com",
+            # 'git': "https://github.com",
+            'git': "git@github.com",
             'repo': self.args.github_repo,
             'token': self.args.github_token,
         }
