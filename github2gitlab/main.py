@@ -64,7 +64,7 @@ class GitHub2GitLab(object):
         self.github = {
             'url': "https://api.github.com",
             # 'git': "https://github.com",
-            'git': "git@github.com",
+            'git': "git@github.com:",
             'repo': self.args.github_repo,
             'token': self.args.github_token,
         }
@@ -182,7 +182,7 @@ class GitHub2GitLab(object):
         name = self.gitlab['name']
         if not os.path.exists(name):
             self.sh("git clone --bare " + self.github['git'] +
-                    "/" + self.github['repo'] + " " + name)
+                    "/" + self.github['repo'] + " " + name + ".git")
         repo = git.Repo(name)
         os.chdir(name)
         if not hasattr(repo.remotes, 'gitlab'):
